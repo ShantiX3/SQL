@@ -1,0 +1,31 @@
+--Create a tea store database
+
+CREATE TABLE tea_bags ( id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, amount TEXT, rating INTEGER);
+
+INSERT INTO tea_bags VALUES
+(1, 'ginger', 11, '$20', 15),
+(2, 'turmeric', 13, '$25', 14),
+(3, 'bladderwrack', 15, '$30', 13),
+(4, 'hawthorn_berries', 10, '$18', 12),
+(5, 'hibiscus', 7, '$15', 11),
+(6, 'lavender', 7, '$15', 10),
+(7, 'chai', 5, '$7', 9),
+(8, 'green', 22, '$37', 8),
+(9, 'black', 22, '$37', 7),
+(10, 'lemon', 8, '$16', 6),
+(11, 'chamomile', 12, '$21', 5),
+(12, 'mint', 14, '$24', 4),
+(13, 'blueberry', 15, '$25', 3),
+(14, 'soursop', 19, '$29', 2),
+(15, 'pineapple', 21,'$31', 1)
+;
+
+--display the database ordered by rating of popular demand
+
+SELECT * FROM tea_bags
+ORDER BY rating asc;
+
+
+--how many items in whole store?
+
+SELECT SUM (quantity) FROM tea_bags;
