@@ -29,3 +29,15 @@ ORDER BY rating asc;
 --how many items in whole store?
 
 SELECT SUM (quantity) FROM tea_bags;
+
+
+--display database ordered by quantity from most to least
+
+SELECT * FROM tea_bags
+ORDER BY quantity desc;
+
+
+--display database in alphabetical order
+
+SELECT * FROM tea_bags
+ORDER BY name asc;
