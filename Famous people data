@@ -1,0 +1,65 @@
+/* Create table about the people and what they do here */
+
+CREATE TABLE famous_people (id integer primary key, fullname TEXT, age INTEGER, zodiac_sign TEXT);
+
+INSERT INTO famous_people VALUES 
+(1, "Erykah Badu", 52, "Pisces"),
+(2, "Yasiin Bey", 49, "Sagittarius"),
+(3, "Method Man", 52, "Pisces"),
+(4, "Roc Marciano", 45, "Aquarius"),
+(5, "Lauryn Hill", 48, "Gemini");
+
+SELECT * FROM famous_people;
+
+
+
+CREATE TABLE music (id integer primary key, song_title TEXT, genre TEXT, stage_number INTEGER);
+
+INSERT INTO music VALUES
+(1, "on and on", "Soul", 111),
+(2, "Auditorium", "Hip Hop", 999),
+(3, "Shadowboxin", "Hip Hop", 888),
+(4, "Zig Zag Zig", "Hip Hop", 555),
+(5, "How Many Mics", "Hip Hop", 333);
+
+SELECT * FROM music;
+
+
+CREATE TABLE upcoming_concert (id integer primary key, location TEXT, date TEXT);
+
+INSERT INTO upcoming_concert VALUES
+(1, "Charlotte, NC", "07/21/23"),
+(2, "Charlotte, NC", "07/21/23"),
+(3, "Cleveland, OH", "08/12/23"),
+(4, "Manhattan, NY", "08/08/23"),
+(5, "Rotterdam, NL", "07/29/23")
+;
+
+SELECT * FROM upcoming_concert;
+
+
+
+/*INNER JOIN*/
+
+SELECT famous_people.fullname, music.genre
+FROM famous_people
+JOIN music
+ON famous_people.id=music.id;
+
+
+/*LEFT JOIN*/
+
+SELECT famous_people.fullname, famous_people.zodiac_sign, music.genre
+FROM famous_people
+LEFT JOIN music
+ON famous_people.id=music.id;
+
+
+/*RIGHT JOIN*/
+
+SELECT famous_people.fullname, upcoming_concert.date as show_day, upcoming_concert.location
+FROM famous_people
+JOIN upcoming_concert
+ON famous_people.id=upcoming_concert.id
+GROUP BY famous_people.fullname
+ORDER BY upcoming_concert.date asc;
